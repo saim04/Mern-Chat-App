@@ -9,11 +9,11 @@ const authCtrl = {
         req.body;
 
       if (password !== confirmPassword)
-        return res.status(400).json({ message: "Password don't match" });
+        return res.status(400).json({ error: "Password don't match" });
 
       const user = await User.findOne({ username });
       if (user)
-        return res.status(400).json({ message: "Username already exists" });
+        return res.status(400).json({ error: "Username already exists" });
 
       // Hash password
       const salt = await bcrypt.genSalt(10);

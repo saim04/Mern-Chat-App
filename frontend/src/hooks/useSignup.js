@@ -37,6 +37,8 @@ const useSignup = () => {
       });
       const data = await res.json();
       if (data.error) {
+        console.log("true");
+
         throw new Error(data.error);
       }
       //LocalStorage
