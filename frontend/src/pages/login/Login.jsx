@@ -58,7 +58,7 @@ const Login = () => {
           to="/signup"
           className="text-sm self-center text-center hover:underline hover:text-blue-600 mt-2 inline-block"
         >
-          {"Don't"} have an account?
+          Don't have an account?
         </Link>
       </div>
     </div>
