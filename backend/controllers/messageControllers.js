@@ -45,7 +45,7 @@ const msgCtrl = {
         participants: { $all: [senderId, userToChatId] },
       }).populate("messages");
 
-      if (!conversation) res.status(200).json([]);
+      if (!conversation) return res.status(200).json([]);
 
       const messages = conversation.messages;
 
