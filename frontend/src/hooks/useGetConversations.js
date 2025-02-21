@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { useAuthContext } from "../context/AuthContext";
 
 const useGetConversations = () => {
-  const [conversations, setConversations] = useState(false);
+  const [conversations, setConversations] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
