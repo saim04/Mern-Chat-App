@@ -17,7 +17,7 @@ const Messages = () => {
       {!loading &&
         messages.length > 0 &&
         messages.map((message, i) => (
-          <div key={message._id} ref={lastMsgRef}>
+          <div key={message._id}>
             <Message message={message} />
             {i === messages.length - 1 && <div ref={lastMsgRef}></div>}
           </div>
