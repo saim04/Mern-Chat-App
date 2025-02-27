@@ -21,4 +21,4 @@ io.on("connection", (socket) => {
   });
 });
 
-export { app, io, server };
+module.exports = { app, io, server };

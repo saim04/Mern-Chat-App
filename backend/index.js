@@ -2,7 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const connectToMongo = require("./config/connectToMongo");
 const cookieParser = require("cookie-parser");
-const app = express();
+const { app, server } = require("./socket/socket");
 
 dotenv.config();
 
