@@ -14,7 +14,7 @@ app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/messages", require("./routes/messageRoutes"));
 app.use("/api/users", require("./routes/userRoutes"));
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   connectToMongo();
   console.log(`Server Running on PORT ${PORT}`);
 });
