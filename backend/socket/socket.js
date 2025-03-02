@@ -15,6 +15,10 @@ const io = new Server(server, {
   },
 });
 
+const getReceiverSocketId = (receiverId) => {
+  return userSocketMap[receiverId];
+};
+
 io.on("connection", (socket) => {
   console.log("a user connected", socket.id);
   console.log("QUERY OBJ", socket.handshake.query);
@@ -32,4 +36,4 @@ io.on("connection", (socket) => {
   });
 });
 
-module.exports = { app, io, server };
+module.exports = { app, io, server, getReceiverSocketId };
