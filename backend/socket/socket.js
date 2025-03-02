@@ -17,17 +17,18 @@ const io = new Server(server, {
 
 io.on("connection", (socket) => {
   console.log("a user connected", socket.id);
+  console.log("QUERY OBJ", socket.handshake.query);
 
   const userId = socket.handshake.query.userId;
 
-  if (userId !== "undefined") userSocketMap[userId] = socket.id;
+  if (userId != "undefined") userSocketMap[userId] = socket.id;
 
-  io.emit("getOnlineUser", Object.keys(userSocketMap));
+  io.emit("getOnlineUsers", Object.keys(userSocketMap));
 
   socket.on("disconnect", () => {
     console.log("User disconnected", socket.id);
     delete userSocketMap[userId];
-    io.emit("getOnlineUser", Object.keys(userSocketMap));
+    io.emit("getOnlineUsers", Object.keys(userSocketMap));
   });
 });
 
