@@ -16,11 +16,13 @@ const Message = ({ message }) => {
   const shakeClass = message.shouldShake ? "shake" : "";
   return (
     <div className={`chat ${chatClassname}`}>
-      <div className="chat-image avatar">
-        <div className="w-10 rounded-full">
-          <img alt="Tailwind CSS chat bubble component" src={profilePic} />
+      {/* {!fromMe && (
+        <div className="chat-image avatar">
+          <div className="w-10 rounded-full">
+            <img alt="Tailwind CSS chat bubble component" src={profilePic} />
+          </div>
         </div>
-      </div>
+      )} */}
       <div
         className={`chat-bubble text-white ${shakeClass} ${bubbleBgColor} pb-2`}
       >
