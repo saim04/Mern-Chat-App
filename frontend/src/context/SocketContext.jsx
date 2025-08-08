@@ -12,11 +12,14 @@ export const SocketContextProvider = ({ children }) => {
   const { authUser } = useAuthContext();
   useEffect(() => {
     if (authUser) {
-      const socket = io("http://localhost:8000", {
-        query: {
-          userId: authUser._id,
-        },
-      });
+      const socket = io(
+        "https://chatappbackend-production-a17b.up.railway.app",
+        {
+          query: {
+            userId: authUser._id,
+          },
+        }
+      );
 
       setSocket(socket);
 

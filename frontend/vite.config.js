@@ -5,6 +5,12 @@ import preact from "@preact/preset-vite";
 export default defineConfig({
   plugins: [preact()],
   server: {
-    proxy: { "/api": { target: "http://localhost:8000" } },
+    proxy: {
+      "/api": {
+        target: "https://chatappbackend-production-a17b.up.railway.app",
+        changeOrigin: true,
+        secure: true,
+      },
+    },
   },
 });
