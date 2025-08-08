@@ -1,25 +1,27 @@
 import { useState } from "react";
 import useConversation from "../zustand/useConversation";
 import toast from "react-hot-toast";
+import { apiFetch } from "../utils/apiFetch"; // adjust path if needed
 
 const useSendMessage = () => {
   const [loading, setLoading] = useState(false);
   const { messages, setMessages, selectedConversation } = useConversation();
+
   const sendMessage = async (message) => {
+    if (!selectedConversation?._id) {
+      toast.error("No conversation selected");
+      return;
+    }
+
     setLoading(true);
     try {
-      const res = await fetch(
+      const data = await apiFetch(
         `/api/messages/send/${selectedConversation._id}`,
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
           body: JSON.stringify({ message }),
         }
       );
-      const data = await res.json();
-      if (data.error) throw new Error(data.error);
 
       setMessages([...messages, data]);
     } catch (error) {
@@ -31,4 +33,5 @@ const useSendMessage = () => {
 
   return { sendMessage, loading };
 };
+
 export default useSendMessage;
