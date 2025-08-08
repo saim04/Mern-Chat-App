@@ -19,7 +19,7 @@ const MessageContainer = () => {
           {/* Header */}
           <div className="bg-sky-500 px-4 py-2 mb-2">
             <span className="text-white text-lg font-bold">
-              {selectedConversation.fullName}
+              {selectedConversation?.fullName}
             </span>
           </div>
 
